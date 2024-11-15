@@ -1,25 +1,66 @@
-import { Bebas_Neue } from "next/font/google"
+import { Bebas_Neue, Big_Shoulders_Display } from "next/font/google"
 import Image from "next/image";
 
 const bn = Bebas_Neue({ subsets: ['latin'], weight: ['400']});
+const bsd = Big_Shoulders_Display({ subsets: ['latin'], weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']});
 
 export default function Projects () {
     return (
-        <div className="relative flex flex-col items-center justify-center">
-            <div className={`${bn.className} absolute -top-1/2 p-10 uppercase text-[11rem] scale-150`}>About Us</div>
-            <div className="relative shadow-black shadow-[0_-100px_200px_rgba(0,0,0,0.25)] top-20 max-w-3xl text-center flex flex-col items-center justify-center">
-                <Image className="brightness-[.35] scale-125" src={'/images/about.png'} height={1920} width={1920}/>
-                <div className="absolute max-w-2xl">
-                    We at ACM have a simple mission of igniting passion in young minds for technology and opening new
-                    horizons for the growth of innovation. We conduct workshops and hackathons, create podcasts and
-                    blogs, and also provide opportunities to our members to shine in their desired field by creating
-                    projects throughout the academic year. We strive to empower the youth to become masterminds of
-                    computing and coding, and develop a true technological edge. We open doors to new opportunities
-                    and experiences. Bound by our love for coding, ACM is a leading pioneer in ensuring that high quality
-                    technological education is available to everyone. Competition and collaboration go hand in hand, as
-                    we reach new milestones every year, with our team expanding and growing with some of the
-                    brightest minds. Join us in our invigorating journey as we delve deeper into the intriguing
-                    world of coding!
+        <div className="border-t rounded-[6rem] pt-10 w-screen">    
+            <div className="relative mt-40 flex flex-col items-center justify-center">
+                <div className={`${bn.className} absolute -top-1/2 p-10 uppercase text-[11rem] scale-150`}>Projects</div>
+                <div className="relative shadow-black shadow-[0_-100px_200px_rgba(0,0,0,0.25)] top-20 max-w-3xl text-center flex flex-col items-center justify-center">
+                    <div className="flex scale-125 gap-4">
+                        <div className="relative">
+                            <Image src={'/images/projects/project1.png'} height={220} width={220}/>
+                            <div className="opacity-0 transition-all duration-300 absolute bg-black/50 min-h-full bottom-0 text-[0.60rem] text-left p-4 text-pretty gap-1 hover:opacity-100 flex flex-col justify-end">
+                                <div className={`${bsd.className} text-5xl font-black`}>DVWA</div>
+                                Exploring PHP/MySQL
+                                vulnerabilities highlights crucial
+                                security flaws, stressing robust web
+                                development practices.
+                            </div>
+                        </div>
+                        <div className="flex flex-col gap-2 justify-between items-center">
+                            <div className="flex gap-6 justify-between items-center">
+                                <div className="relative">
+                                    <Image src={'/images/projects/project2.png'} height={420} width={360}/>
+                                    <div className="opacity-0 transition-all duration-300 absolute bg-black/50 min-h-full bottom-0 text-[0.60rem] text-left p-4 text-pretty gap-1 hover:opacity-100 flex flex-col justify-end">
+                                        <div className={`${bsd.className} text-5xl font-black`}>Valor Arena</div>
+                                        3D wave survival game with card buffs, dynamic bosses,
+                                        skill customization, and immersive sound.
+                                    </div>
+                                </div>
+                                <div className="relative">
+                                    <Image src={'/images/projects/project3.png'} height={220} width={220}/>
+                                    <div className="opacity-0 transition-all duration-300 absolute bg-black/50 min-h-full bottom-0 text-[0.60rem] text-left p-4 text-pretty gap-1 hover:opacity-100 flex flex-col justify-end">
+                                        <div className={`${bsd.className} text-5xl font-black`}>Quizzo</div>
+                                        Quizzo: Create, play, compete with
+                                        live feedback, secure logins, and
+                                        leaderboards.
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex gap-4 justify-between items-center">
+                                <div className="relative">
+                                    <Image src={'/images/projects/project4.png'} height={210} width={210}/>
+                                    <div className="opacity-0 transition-all duration-300 absolute bg-black/50 min-h-full bottom-0 text-[0.50rem] text-left p-4 text-pretty gap-0 hover:opacity-100 flex flex-col justify-end">
+                                        <div className={`${bsd.className} text-2xl font-black`}>MediQuery</div>
+                                        Quizzo: Create, play, compete with
+                                        live feedback, secure logins, and
+                                        leaderboards.
+                                    </div>
+                                </div>
+                                <div className="relative">
+                                    <Image src={'/images/projects/project5.png'} height={210} width={350}/>
+                                    <div className="opacity-0 transition-all duration-300 absolute bg-black/50 min-h-full bottom-0 text-[0.50rem] text-left p-4 text-pretty gap-0 hover:opacity-100 flex flex-col justify-end">
+                                        <div className={`${bsd.className} text-2xl font-black`}>Automation for ACM</div>
+                                        One-click website hosting automates deployment, Docker containers, and EC2 instance management for ACM MPSTME.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
