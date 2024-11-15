@@ -1,4 +1,5 @@
 import About from "@/components/About";
+import Factoid from "@/components/Factoid";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
@@ -9,6 +10,7 @@ export default function Home() {
     <div className="flex flex-col w-screen items-center justify-between gap-48 overflow-x-hidden">
       <Navbar/>
       <Hero/>
+      <Factoid/>
       <About/>
       <Projects/>
       <Footer/>
