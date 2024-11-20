@@ -24,10 +24,10 @@ export default function Factoid() {
     }, [items.length]);
 
     return (
-        <div className="flex w-screen px-10 text-7xl items-center gap-2 -mt-10 pb-10">
-            <div className="text-[#0099FF]">We</div>
+        <div className="flex w-screen px-10 text-7xl items-center gap-2 -mt-10 pb-10 max-w-7xl mx-auto">
+            <div className="text-[#0099FF] pr-6">We</div>
             <div className="flex flex-col gap-4 h-[200px] overflow-hidden relative min-w-[60rem] max-h-48">
-                <div className='bg-gradient-to-b from-black via-transparent to-black z-30 absolute h-full w-full'></div>
+                <div className='bg-gradient-to-b from-brand-background via-transparent to-brand-background z-30 absolute h-full w-full'></div> 
                 {items.map((item, index) => (
                     <div
                         key={index}

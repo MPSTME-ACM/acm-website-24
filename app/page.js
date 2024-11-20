@@ -7,13 +7,13 @@ import Projects from "@/components/Projects";
 
 export default function Home() {
   return (
-    <div className="flex flex-col w-screen items-center justify-between gap-48 overflow-x-hidden">
-      <Navbar/>
-      <Hero/>
-      <Factoid/>
-      <About/>
-      <Projects/>
-      <Footer/>
+    <div className="flex flex-col w-screen items-center justify-between gap-48 overflow-x-hidden text-brand-surface">
+      <Navbar />
+      <Hero />
+      <About />
+      <Factoid />
+      <Projects />
+      <Footer />
     </div>
-  )
+  );
 }
