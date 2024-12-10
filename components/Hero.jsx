@@ -35,7 +35,7 @@ export default function Hero() {
         }}
       />
       <h1
-        className="scroll-m-20 text-7xl font-black tracking-tight lg:text-title px-4"
+        className="text-center scroll-m-20 text-5xl md:text-7xl font-black tracking-tight lg:text-title px-4"
         style={{
           opacity: isInView ? 1 : 0,
           transform: isInView ? "translateY(0)" : "translateY(50px)",
@@ -45,7 +45,7 @@ export default function Hero() {
         ACM MPSTME
       </h1>
       <h2
-        className=" uppercase text-lg md:text-body-1 text-brand-surface2 tracking-wide text-center mb-6"
+        className="uppercase text-xs md:text-lg md:text-body-1 text-brand-surface2 tracking-wide text-center mb-6"
         style={{
           opacity: isInView ? 1 : 0,
           transform: isInView ? "translateY(0)" : "translateY(50px)",

@@ -6,10 +6,10 @@ const bsd = Big_Shoulders_Display({ subsets: ['latin'], weight: ['100', '200', '
 
 export default function Projects () {
     return (
-        <div className="border-t rounded-[6rem] pt-10 w-screen">    
+        <div className="border-t rounded-[4rem] md:rounded-[6rem] pt-10 w-screen">    
             <div className="relative mt-40 flex flex-col items-center justify-center">
-                <div className={`${bn.className} absolute -top-1/2 p-10 uppercase text-[11rem] scale-150`}>Projects</div>
-                <div className="relative shadow-black shadow-[0_-100px_200px_rgba(0,0,0,0.25)] top-20 max-w-3xl text-center flex flex-col items-center justify-center">
+                <div className={`${bn.className} absolute -top-40 md:-top-1/2 md:p-10 uppercase text-8xl md:text-[11rem] md:scale-150`}>Projects</div>
+                <div className="relative shadow-black shadow-[0_-100px_200px_rgba(0,0,0,0.25)] -top-16 md:top-20 max-w-3xl text-center flex flex-col items-center justify-center">
                     <div className="flex scale-125 gap-4">
                         <div className="relative">
                             <Image src={'/images/projects/project1.png'} height={220} width={220}/>

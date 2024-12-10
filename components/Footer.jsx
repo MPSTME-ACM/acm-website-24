@@ -17,9 +17,9 @@ const FlyWithACM = () => (
 export default function Footer () {
     return (
         <div className="m-4 flex flex-col w-screen">
-            <div className="flex justify-around px-20">
+            <div className="flex flex-col-reverse gap-10 items-center md:items-start md:gap-0 md:flex-row justify-around px-20">
                 <FlyWithACM/>
-                <div className="flex gap-16">
+                <div className="flex gap-8 md:gap-16">
                     <div className="flex flex-col gap-3">
                         <h1 className="p-0 m-0 uppercase font-semibold">Socials</h1>
                         <div className="flex flex-col gap-2 font-extralight text-xs">

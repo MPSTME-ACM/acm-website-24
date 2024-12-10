@@ -23,7 +23,7 @@ export default function About() {
       </div>
       <div className="flex flex-col md:flex-row justify-center items-center gap-10 my-5 px-4">
         <Image
-          className="w-1/2 h-full order-first md:order-last rounded-bl-3xl rounded-tr-3xl object-cover"
+          className="md:w-1/2 h-full order-first md:order-last rounded-bl-3xl rounded-tr-3xl object-cover"
           src={"/images/about.png"}
           height={1920}
           width={1920}
@@ -35,7 +35,7 @@ export default function About() {
           }}
         />
         <p
-          className="text-lg md:mr-5 text-brand-surface2"
+          className="px-5 md:px-0 md:text-lg md:mr-5 text-brand-surface2"
           style={{
             opacity: isInView ? 1 : 0,
             transform: isInView ? "translateY(0)" : "translateY(10px)",
