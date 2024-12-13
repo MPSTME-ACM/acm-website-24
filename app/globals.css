@@ -14,6 +14,16 @@
   font-display: swap;
   font-style: normal;
 }
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge add Firefox */
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none; /* Firefox */
+}
+
 body {
   font-family: "Switzer", sans-serif;
   background-color: #0f0f0f;
@@ -22,6 +32,7 @@ body {
   background-position: 0 0;
   @apply text-zinc-200;
 }
+
 @layer base {
   :root {
     --background: 0 0% 100%;
