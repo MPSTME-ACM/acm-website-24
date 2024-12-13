@@ -12,11 +12,19 @@ export default function Home() {
     <div className="flex flex-col w-screen items-center justify-between gap-16 md:gap-48 overflow-x-hidden text-brand-surface">
       <Navbar />
       <Hero />
-      <About />
+      <section id="about">
+        <About />
+      </section>
       <Factoid />
-      <Projects />
-      <Events/>
-      <Team/>
+      <section id="projects">
+        <Projects />
+      </section>
+      <section id="events">
+        <Events />
+      </section>
+      <section id="team">
+        <Team />
+      </section>
       <Footer />
     </div>
   );

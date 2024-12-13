@@ -60,7 +60,7 @@ export default async function Team() {
               
               {/* Department and Role */}
               <p className="text-sm text-gray-400">
-                <div className="font-bold text-lg">{member.position[1]}</div><div className={`${jbm.className} uppercase text-xs text-sky-500/50`}>{member.position[0]}</div>
+                <div className="font-bold text-lg">{member.position[1] === 'SC' ? '' : member.position[1]}</div><div className={`${jbm.className} uppercase text-xs ${member.position[0] === 'SC' ? 'text-purple-500 font-bold' : `text-sky-500/50`}`}>{member.position[0] === "SC" ? 'Super Core' : member.position[0]}</div>
               </p>
 
               {/* Member Picture */}
