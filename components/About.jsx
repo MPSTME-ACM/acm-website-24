@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
-import { useInView } from "motion/react";
+// import { useInView } from "motion/react";
+import { useInView } from "framer-motion";
 import { useRef } from "react";
 
 export default function About() {
