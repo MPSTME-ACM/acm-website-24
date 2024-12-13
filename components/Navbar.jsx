@@ -75,7 +75,7 @@ import {
                     ACM MPSTME
                   </SheetTitle>
                 </SheetHeader>
-                <div className="mt-5">
+                <div className="flex flex-col mt-5">
                   <Link
                     href="/"
                     className="m-0 p-0 transition-all duration-200 cursor-pointer rounded-lg px-3 py-2 underline hover:bg-black/25"
