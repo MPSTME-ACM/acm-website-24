@@ -30,9 +30,9 @@ jobs:
 
       - name: Set up Docker build environment
         env:
-          NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
-          NEXT_PUBLIC_NEWSLETTER_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_NEWSLETTER_PROJECT_ID }}
-          NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
+          NEXT_PUBLIC_SANITY_PROJECT_ID: "atl90ed5"
+          NEXT_PUBLIC_NEWSLETTER_PROJECT_ID: "cql3n56o"
+          NEXT_PUBLIC_SANITY_DATASET: "production"
         run: |
           IMAGE_NAME="mpstme-acm/acm-website-24"
           DATE_TAG=$(date +%Y-%m-%d-%H-%M-%S)
