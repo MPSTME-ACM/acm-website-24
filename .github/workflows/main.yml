@@ -19,8 +19,8 @@ jobs:
       - name: Install dependencies and build the project
         env: # Add required environment variables here
           NEXT_PUBLIC_SANITY_PROJECT_ID: $NEXT_PUBLIC_SANITY_PROJECT_ID
-          NEXT_PUBLIC_NEWSLETTER_PROJECT_ID: $NEXT_PUBLIC_NEWSLETTER_PROJECT_ID
-          NEXT_PUBLIC_SANITY_DATASET: $NEXT_PUBLIC_SANITY_DATASET
+          NEXT_PUBLIC_NEWSLETTER_PROJECT_ID: "xyz"
+          NEXT_PUBLIC_SANITY_DATASET: "abc"
         run: |
           echo $NEXT_PUBLIC_NEWSLETTER_PROJECT_ID
           echo $NEXT_PUBLIC_SANITY_DATASET
