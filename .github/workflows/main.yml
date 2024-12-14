@@ -16,14 +16,23 @@ jobs:
         with:
           node-version: '18' # Use your preferred Node.js version
 
-      - name: Install dependencies and build the project
-        env: # Add required environment variables here
-          NEXT_PUBLIC_SANITY_PROJECT_ID: $NEXT_PUBLIC_SANITY_PROJECT_ID
-          NEXT_PUBLIC_NEWSLETTER_PROJECT_ID: "xyz"
-          NEXT_PUBLIC_SANITY_DATASET: "abc"
+      - name: Source environment variables
         run: |
-          echo $NEXT_PUBLIC_NEWSLETTER_PROJECT_ID
-          echo $NEXT_PUBLIC_SANITY_DATASET
+            # Explicitly source the environment variables from the server
+            source ~/.zshrc
+            echo "NEXT_PUBLIC_SANITY_PROJECT_ID=$NEXT_PUBLIC_SANITY_PROJECT_ID"
+            echo "NEXT_PUBLIC_NEWSLETTER_PROJECT_ID=$NEXT_PUBLIC_NEWSLETTER_PROJECT_ID"
+            echo "NEXT_PUBLIC_SANITY_DATASET=$NEXT_PUBLIC_SANITY_DATASET"
+
+      - name: Install dependencies and build the project
+        env:
+          NEXT_PUBLIC_SANITY_PROJECT_ID: $NEXT_PUBLIC_SANITY_PROJECT_ID
+          NEXT_PUBLIC_NEWSLETTER_PROJECT_ID: $NEXT_PUBLIC_NEWSLETTER_PROJECT_ID
+          NEXT_PUBLIC_SANITY_DATASET: $NEXT_PUBLIC_SANITY_DATASET
+        run: |
+          echo "NEXT_PUBLIC_SANITY_PROJECT_ID=$NEXT_PUBLIC_SANITY_PROJECT_ID"
+          echo "NEXT_PUBLIC_NEWSLETTER_PROJECT_ID=$NEXT_PUBLIC_NEWSLETTER_PROJECT_ID"
+          echo "NEXT_PUBLIC_SANITY_DATASET=$NEXT_PUBLIC_SANITY_DATASET"
           npm ci
           npm run build
 
@@ -67,9 +76,9 @@ jobs:
           docker run -d \
             --name "$CONTAINER_NAME" \
             -p "$PORT:3000" \ # Map port 8080 on host to port 3000 on container
-            -e NEXT_PUBLIC_SANITY_PROJECT_ID \
-            -e NEXT_PUBLIC_NEWSLETTER_PROJECT_ID \
-            -e NEXT_PUBLIC_SANITY_DATASET \
+            -e NEXT_PUBLIC_SANITY_PROJECT_ID="$NEXT_PUBLIC_SANITY_PROJECT_ID" \
+            -e NEXT_PUBLIC_NEWSLETTER_PROJECT_ID="$NEXT_PUBLIC_NEWSLETTER_PROJECT_ID" \
+            -e NEXT_PUBLIC_SANITY_DATASET="$NEXT_PUBLIC_SANITY_DATASET" \
             "$IMAGE_NAME:$TAG"
 
           echo "Docker container '$CONTAINER_NAME' is running from image '$IMAGE_NAME:$TAG' on port $PORT"
