@@ -32,30 +32,30 @@ import {
             ACM
           </Link>
           {/* Desktop Navigation Links */}
-          <a
+          <Link
             href={getSectionLink("about")}
             className="hidden md:block m-0 p-0 transition-all duration-200 cursor-pointer rounded-lg px-6 py-3 hover:bg-black/25"
           >
             About Us
-          </a>
-          <a
+          </Link>
+          <Link
             href={getSectionLink("projects")}
             className="hidden md:block m-0 p-0 transition-all duration-200 cursor-pointer rounded-lg px-6 py-3 hover:bg-black/25"
           >
             Projects
-          </a>
-          <a
+          </Link>
+          <Link
             href={getSectionLink("events")}
             className="hidden md:block m-0 p-0 transition-all duration-200 cursor-pointer rounded-lg px-6 py-3 hover:bg-black/25"
           >
             Events
-          </a>
-          <a
+          </Link>
+          <Link
             href={getSectionLink("team")}
             className="hidden md:block m-0 p-0 transition-all duration-200 cursor-pointer rounded-lg px-6 py-3 hover:bg-black/25"
           >
             Team
-          </a>
+          </Link>
           {/* Newsletter */}
           <Link
             href="/newsletter"
@@ -82,30 +82,30 @@ import {
                   >
                     Home
                   </Link>
-                  <a
+                  <Link
                     href={getSectionLink("about")}
                     className="m-0 p-0 transition-all duration-200 cursor-pointer rounded-lg px-3 py-2 underline hover:bg-black/25"
                   >
                     About Us
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href={getSectionLink("projects")}
                     className="m-0 p-0 transition-all duration-200 cursor-pointer rounded-lg px-3 py-2 underline hover:bg-black/25"
                   >
                     Projects
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href={getSectionLink("events")}
                     className="m-0 p-0 transition-all duration-200 cursor-pointer rounded-lg px-3 py-2 underline hover:bg-black/25"
                   >
                     Events
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href={getSectionLink("team")}
                     className="m-0 p-0 transition-all duration-200 cursor-pointer rounded-lg px-3 py-2 underline hover:bg-black/25"
                   >
                     Team
-                  </a>
+                  </Link>
                   <Link
                     href="/newsletter"
                     className="m-0 p-0 transition-all duration-200 cursor-pointer rounded-lg px-3 py-2 underline hover:bg-black/25"

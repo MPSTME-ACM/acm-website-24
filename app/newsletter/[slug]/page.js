@@ -5,6 +5,8 @@ import { notFound } from "next/navigation";
 import { JetBrains_Mono } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Image from "next/image";
+import Link from "next/link";
 
 const jbm = JetBrains_Mono({ subsets: ["latin"] });
 
@@ -61,21 +63,23 @@ const PortableTextComponents = {
   },
   marks: {
     link: ({ value, children }) => (
-      <a
+      <Link
         href={value?.href}
         className="text-blue-600 hover:underline"
         target="_blank"
         rel="noopener noreferrer"
       >
         {children}
-      </a>
+      </Link>
     ),
   },
   types: {
     image: ({ value }) => (
-      <img
+      <Image
         src={value?.asset ? urlFor(value).url() : "/placeholder-image.png"}
         alt={value?.alt || "Image"}
+        width={800}
+        height={600}
         className="w-full rounded-lg my-4"
       />
     ),
@@ -111,9 +115,11 @@ export default async function PostPage({ params }) {
             Published on {new Date(post.publishedAt).toLocaleDateString()}
           </p>
 
-          <img
+          <Image
             src={urlFor(post.mainImage).url()}
             alt={post.title}
+            width={800}
+            height={600}
             className="w-full h-80 object-cover rounded-xl mb-6 shadow-lg"
           />
 
@@ -177,19 +183,21 @@ export default async function PostPage({ params }) {
 
         {/* Right Sidebar: Table of Contents */}
         <aside className="hidden md:block w-64">
-          <h3 className="text-lg font-bold text-brand-surface mb-4">Table of Contents</h3>
-          <ul className="space-y-2">
-            {tableOfContents.map((item) => (
-              <li key={item.id}>
-                <a
-                  href={`#${item.id}`}
-                  className="text-zinc-500 hover:underline block text-sm font-medium"
-                >
-                  {item.title}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <div className="fixed">  
+            <h3 className="text-lg font-bold text-brand-surface mb-4">Table of Contents</h3>
+            <ul className="space-y-2">
+              {tableOfContents.map((item) => (
+                <li key={item.id}>
+                  <Link
+                    href={`#${item.id}`}
+                    className="text-zinc-500 hover:underline block text-sm font-medium"
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </aside>
       </div>
       <Footer />

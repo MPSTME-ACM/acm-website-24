@@ -25,6 +25,7 @@ export default function About() {
         <Image
           className="md:w-1/2 h-full order-first md:order-last rounded-bl-3xl rounded-tr-3xl object-cover"
           src={"/images/about.png"}
+          alt="ACM MPSTME 2024 Team"
           height={1920}
           width={1920}
           style={{

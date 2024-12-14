@@ -13,6 +13,7 @@ export default function Hero() {
       <Image
         className="absolute -top-16 -left-20 blur-xl hover:blur-none transition-all duration-300"
         src={"/images/image1.png"}
+        alt="ACM MPSTME Image"
         width={360}
         height={360}
         style={{
@@ -25,6 +26,7 @@ export default function Hero() {
       <Image
         className="absolute -top-20 -right-20 blur-xl hover:blur-none transition-all duration-300"
         src={"/images/image2.png"}
+        alt="ACM MPSTME Image"
         width={360}
         height={360}
         style={{
@@ -58,6 +60,7 @@ export default function Hero() {
       <Image
         className="absolute -bottom-16 -left-20 blur-xl hover:blur-none transition-all duration-300"
         src={"/images/image3.png"}
+        alt="ACM MPSTME Image"
         width={360}
         height={360}
         style={{
@@ -70,6 +73,7 @@ export default function Hero() {
       <Image
         className="absolute -bottom-20 -right-20 blur-xl hover:blur-none transition-all duration-300"
         src={"/images/image4.png"}
+        alt="ACM MPSTME Image"
         width={360}
         height={360}
         style={{

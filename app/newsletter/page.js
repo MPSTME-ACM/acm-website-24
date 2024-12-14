@@ -4,6 +4,7 @@ import { createClient } from "@sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 import Link from "next/link";
 import { JetBrains_Mono } from "next/font/google";
+import Image from "next/image";
 
 const jbm = JetBrains_Mono({ subsets: ["latin"] });
 
@@ -49,9 +50,11 @@ export default async function NewsletterPage() {
               className="flex gap-4 flex-col justify-between md:flex-row-reverse border rounded-lg p-4 shadow hover:shadow-md transition"
             >
               {post.imageUrl ? (
-                <img
+                <Image
                   src={urlFor(post.imageUrl)}
                   alt={post.title}
+                  width={800}
+                  height={600}
                   className="w-64 h-40 object-cover rounded-lg mb-4"
                 />
               ) : (

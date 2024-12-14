@@ -8,7 +8,7 @@ function Desktop () {
     return (
         <div className="hidden md:flex scale-125 gap-4">
             <div className="relative">
-                <Image src={'/images/projects/project1.png'} height={220} width={220}/>
+                <Image alt="DVWA" src={'/images/projects/project1.png'} height={220} width={220}/>
                 <div className="opacity-0 transition-all duration-300 absolute bg-black/50 min-h-full bottom-0 text-[0.60rem] text-left p-4 text-pretty gap-1 hover:opacity-100 flex flex-col justify-end">
                     <div className={`${bsd.className} text-5xl font-black`}>DVWA</div>
                     Exploring PHP/MySQL
@@ -20,7 +20,7 @@ function Desktop () {
             <div className="flex flex-col gap-2 justify-between items-center">
                 <div className="flex gap-6 justify-between items-center">
                     <div className="relative">
-                        <Image src={'/images/projects/project2.png'} height={420} width={360}/>
+                        <Image alt="Valor Arena" src={'/images/projects/project2.png'} height={420} width={360}/>
                         <div className="opacity-0 transition-all duration-300 absolute bg-black/50 min-h-full bottom-0 text-[0.60rem] text-left p-4 text-pretty gap-1 hover:opacity-100 flex flex-col justify-end">
                             <div className={`${bsd.className} text-5xl font-black`}>Valor Arena</div>
                             3D wave survival game with card buffs, dynamic bosses,
@@ -28,7 +28,7 @@ function Desktop () {
                         </div>
                     </div>
                     <div className="relative">
-                        <Image src={'/images/projects/project3.png'} height={220} width={220}/>
+                        <Image alt="Quizzo" src={'/images/projects/project3.png'} height={220} width={220}/>
                         <div className="opacity-0 transition-all duration-300 absolute bg-black/50 min-h-full bottom-0 text-[0.60rem] text-left p-4 text-pretty gap-1 hover:opacity-100 flex flex-col justify-end">
                             <div className={`${bsd.className} text-5xl font-black`}>Quizzo</div>
                             Quizzo: Create, play, compete with
@@ -39,16 +39,14 @@ function Desktop () {
                 </div>
                 <div className="flex gap-4 justify-between items-center">
                     <div className="relative">
-                        <Image src={'/images/projects/project4.png'} height={210} width={210}/>
+                        <Image alt="MediQuery" src={'/images/projects/project4.png'} height={210} width={210}/>
                         <div className="opacity-0 transition-all duration-300 absolute bg-black/50 min-h-full bottom-0 text-[0.50rem] text-left p-4 text-pretty gap-0 hover:opacity-100 flex flex-col justify-end">
                             <div className={`${bsd.className} text-2xl font-black`}>MediQuery</div>
-                            Quizzo: Create, play, compete with
-                            live feedback, secure logins, and
-                            leaderboards.
+                            Medical chatbot uses Pinecone vector storage and Qwen - 21.5 API for efficient, informed responses
                         </div>
                     </div>
                     <div className="relative">
-                        <Image src={'/images/projects/project5.png'} height={210} width={350}/>
+                        <Image alt="Automation for ACM" src={'/images/projects/project5.png'} height={210} width={350}/>
                         <div className="opacity-0 transition-all duration-300 absolute bg-black/50 min-h-full bottom-0 text-[0.50rem] text-left p-4 text-pretty gap-0 hover:opacity-100 flex flex-col justify-end">
                             <div className={`${bsd.className} text-2xl font-black`}>Automation for ACM</div>
                             One-click website hosting automates deployment, Docker containers, and EC2 instance management for ACM MPSTME.
@@ -64,7 +62,7 @@ function Mobile () {
     return (
         <div className="md:hidden flex flex-col items-center gap-4">
             <div className="relative px-4">
-                <Image className="aspect-video object-cover border-2 border-blue-500 rounded-2xl" src={'/images/projects/project1.png'} height={1920} width={1920}/>
+                <Image alt="DVWA" className="aspect-video object-cover border-2 border-blue-500 rounded-2xl" src={'/images/projects/project1.png'} height={1920} width={1920}/>
                 <div className="opacity-100 transition-all duration-300 absolute bg-black/50 min-h-full bottom-0 text-xs mr-2 text-left p-4 text-pretty gap-1 flex flex-col justify-end">
                     <div className={`${bsd.className} text-5xl font-black`}>DVWA</div>
                     Exploring PHP/MySQL
@@ -74,7 +72,7 @@ function Mobile () {
                 </div>
             </div>
             <div className="relative px-4">
-                <Image className="aspect-video object-cover border-2 border-blue-500 rounded-2xl" src={'/images/projects/project2.png'} height={1920} width={1920}/>
+                <Image alt="Valor Arena" className="aspect-video object-cover border-2 border-blue-500 rounded-2xl" src={'/images/projects/project2.png'} height={1920} width={1920}/>
                 <div className="opacity-100 transition-all duration-300 absolute bg-black/50 min-h-full bottom-0 text-xs mr-2 text-left p-4 text-pretty gap-1 flex flex-col justify-end">
                     <div className={`${bsd.className} text-5xl font-black`}>Valor Arena</div>
                     3D wave survival game with card buffs, dynamic bosses,
@@ -82,7 +80,7 @@ function Mobile () {
                 </div>
             </div>
             <div className="relative px-4">
-                <Image className="aspect-video object-cover border-2 border-blue-500 rounded-2xl" src={'/images/projects/project3.png'} height={1920} width={1920}/>
+                <Image alt="Quizzo" className="aspect-video object-cover border-2 border-blue-500 rounded-2xl" src={'/images/projects/project3.png'} height={1920} width={1920}/>
                 <div className="opacity-100 transition-all duration-300 absolute bg-black/50 min-h-full bottom-0 text-xs mr-2 text-left p-4 text-pretty gap-1 flex flex-col justify-end">
                     <div className={`${bsd.className} text-5xl font-black`}>Quizzo</div>
                     Quizzo: Create, play, compete with
@@ -91,16 +89,14 @@ function Mobile () {
                 </div>
             </div>
             <div className="relative px-4">
-                <Image className="aspect-video object-cover border-2 border-blue-500 rounded-2xl" src={'/images/projects/project4.png'} height={1920} width={1920}/>
+                <Image alt="MediQuery" className="aspect-video object-cover border-2 border-blue-500 rounded-2xl" src={'/images/projects/project4.png'} height={1920} width={1920}/>
                 <div className="opacity-100 transition-all duration-300 absolute bg-black/50 min-h-full bottom-0 text-xs mr-2 text-left p-4 text-pretty gap-0 flex flex-col justify-end">
                     <div className={`${bsd.className} text-5xl font-black`}>MediQuery</div>
-                    Quizzo: Create, play, compete with
-                    live feedback, secure logins, and
-                    leaderboards.
+                    Medical chatbot uses Pinecone vector storage and Qwen - 21.5 API for efficient, informed responses
                 </div>
             </div>
             <div className="relative px-4">
-                <Image className="aspect-video object-cover border-2 border-blue-500 rounded-2xl" src={'/images/projects/project5.png'} height={1920} width={1920}/>
+                <Image alt="Automation for ACM" className="aspect-video object-cover border-2 border-blue-500 rounded-2xl" src={'/images/projects/project5.png'} height={1920} width={1920}/>
                 <div className="opacity-100 transition-all duration-300 absolute bg-black/50 min-h-full bottom-0 text-xs mr-2 text-left p-4 text-pretty gap-0 flex flex-col justify-end">
                     <div className={`${bsd.className} text-4xl font-black`}>Automation for ACM</div>
                     One-click website hosting automates deployment, Docker containers, and EC2 instance management for ACM MPSTME.
