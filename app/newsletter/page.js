@@ -9,8 +9,8 @@ import Image from "next/image";
 const jbm = JetBrains_Mono({ subsets: ["latin"] });
 
 const sanityClient = createClient({
-  projectId: process.env.NEXT_PUBLIC_NEWSLETTER_PROJECT_ID,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
+  projectId: "cql3n56o",
+  dataset: "production",
   apiVersion: "2023-01-01",
   useCdn: true,
 });

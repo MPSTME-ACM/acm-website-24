@@ -12,8 +12,8 @@ const jbm = JetBrains_Mono({ subsets: ["latin"] });
 
 // Sanity client configuration with environment variables
 const sanityClient = createClient({
-  projectId: process.env.NEXT_PUBLIC_NEWSLETTER_PROJECT_ID,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
+  projectId: "cql3n56o",
+  dataset: "production",
   apiVersion: "2023-01-01", // Use the latest API version
   useCdn: true, // Use CDN for faster responses
 });
@@ -53,13 +53,23 @@ async function fetchPostBySlug(slug) {
 // PortableTextComponents for rendering rich content
 const PortableTextComponents = {
   block: {
-    h1: ({ children }) => <h1 className="text-3xl font-bold my-4">{children}</h1>,
-    h2: ({ children }) => <h2 className="text-2xl font-semibold my-4">{children}</h2>,
-    normal: ({ children }) => <p className="text-base text-zinc-300/80 my-4">{children}</p>,
+    h1: ({ children }) => (
+      <h1 className="text-3xl font-bold my-4">{children}</h1>
+    ),
+    h2: ({ children }) => (
+      <h2 className="text-2xl font-semibold my-4">{children}</h2>
+    ),
+    normal: ({ children }) => (
+      <p className="text-base text-zinc-300/80 my-4">{children}</p>
+    ),
   },
   list: {
-    bullet: ({ children }) => <ul className="list-disc ml-5 my-4">{children}</ul>,
-    number: ({ children }) => <ol className="list-decimal ml-5 my-4">{children}</ol>,
+    bullet: ({ children }) => (
+      <ul className="list-disc ml-5 my-4">{children}</ul>
+    ),
+    number: ({ children }) => (
+      <ol className="list-decimal ml-5 my-4">{children}</ol>
+    ),
   },
   marks: {
     link: ({ value, children }) => (
@@ -109,9 +119,13 @@ export default async function PostPage({ params }) {
       <div className="flex flex-row max-w-6xl mx-auto p-6 mt-28">
         {/* Main Content */}
         <div className="flex-1 pr-8">
-          <h1 className="text-5xl font-bold text-brand-surface mb-4">{post.title}</h1>
+          <h1 className="text-5xl font-bold text-brand-surface mb-4">
+            {post.title}
+          </h1>
 
-          <p className={`${jbm.className} uppercase text-zinc-500 text-sm mb-4`}>
+          <p
+            className={`${jbm.className} uppercase text-zinc-500 text-sm mb-4`}
+          >
             Published on {new Date(post.publishedAt).toLocaleDateString()}
           </p>
 
@@ -123,47 +137,79 @@ export default async function PostPage({ params }) {
             className="w-full h-80 object-cover rounded-xl mb-6 shadow-lg"
           />
 
-          <p className="text-base text-zinc-500 pb-4 mb-6 border-b">{post.summary}</p>
+          <p className="text-base text-zinc-500 pb-4 mb-6 border-b">
+            {post.summary}
+          </p>
 
           <div className="prose prose-lg">
-            <h2 id="topic1" className="text-2xl font-semibold text-brand-surface mb-4">
+            <h2
+              id="topic1"
+              className="text-2xl font-semibold text-brand-surface mb-4"
+            >
               {post.topic1}
             </h2>
-            <PortableText value={post.top1body} components={PortableTextComponents} />
+            <PortableText
+              value={post.top1body}
+              components={PortableTextComponents}
+            />
 
             {post.topic2 && (
               <>
-                <h2 id="topic2" className="text-2xl font-semibold text-brand-surface mt-10 mb-4">
+                <h2
+                  id="topic2"
+                  className="text-2xl font-semibold text-brand-surface mt-10 mb-4"
+                >
                   {post.topic2}
                 </h2>
-                <PortableText value={post.top2body} components={PortableTextComponents} />
+                <PortableText
+                  value={post.top2body}
+                  components={PortableTextComponents}
+                />
               </>
             )}
 
             {post.topic3 && (
               <>
-                <h2 id="topic3" className="text-2xl font-semibold text-brand-surface mt-10 mb-4">
+                <h2
+                  id="topic3"
+                  className="text-2xl font-semibold text-brand-surface mt-10 mb-4"
+                >
                   {post.topic3}
                 </h2>
-                <PortableText value={post.top3body} components={PortableTextComponents} />
+                <PortableText
+                  value={post.top3body}
+                  components={PortableTextComponents}
+                />
               </>
             )}
 
             {post.topic4 && (
               <>
-                <h2 id="topic4" className="text-2xl font-semibold text-brand-surface mt-10 mb-4">
+                <h2
+                  id="topic4"
+                  className="text-2xl font-semibold text-brand-surface mt-10 mb-4"
+                >
                   {post.topic4}
                 </h2>
-                <PortableText value={post.top4body} components={PortableTextComponents} />
+                <PortableText
+                  value={post.top4body}
+                  components={PortableTextComponents}
+                />
               </>
             )}
 
             {post.topic5 && (
               <>
-                <h2 id="topic5" className="text-2xl font-semibold text-brand-surface mt-10 mb-4">
+                <h2
+                  id="topic5"
+                  className="text-2xl font-semibold text-brand-surface mt-10 mb-4"
+                >
                   {post.topic5}
                 </h2>
-                <PortableText value={post.top5body} components={PortableTextComponents} />
+                <PortableText
+                  value={post.top5body}
+                  components={PortableTextComponents}
+                />
               </>
             )}
           </div>
@@ -183,8 +229,10 @@ export default async function PostPage({ params }) {
 
         {/* Right Sidebar: Table of Contents */}
         <aside className="hidden md:block w-64">
-          <div className="fixed">  
-            <h3 className="text-lg font-bold text-brand-surface mb-4">Table of Contents</h3>
+          <div className="fixed">
+            <h3 className="text-lg font-bold text-brand-surface mb-4">
+              Table of Contents
+            </h3>
             <ul className="space-y-2">
               {tableOfContents.map((item) => (
                 <li key={item.id}>
