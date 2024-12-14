@@ -19,7 +19,7 @@ jobs:
       - name: Source environment variables
         run: |
             # Explicitly source the environment variables from the server
-            source ~/.zshrc
+            source ~/.bashrc
             echo "NEXT_PUBLIC_SANITY_PROJECT_ID=$NEXT_PUBLIC_SANITY_PROJECT_ID"
             echo "NEXT_PUBLIC_NEWSLETTER_PROJECT_ID=$NEXT_PUBLIC_NEWSLETTER_PROJECT_ID"
             echo "NEXT_PUBLIC_SANITY_DATASET=$NEXT_PUBLIC_SANITY_DATASET"
