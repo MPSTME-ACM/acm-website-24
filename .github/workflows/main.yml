@@ -11,22 +11,19 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set up Node.js environment
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18" # Use your preferred Node.js version
-
-      - name: Install dependencies and build the project
-        run: npm ci
+      - name: Testing If Build Is Successful
+        run: |
+          # Install dependencies and build the project
+          npm ci
           npm run build
 
-      - name: Set up Docker build environment
+      - name: Set up build environment
         run: |
           IMAGE_NAME="mpstme-acm/acm-website-24"
           DATE_TAG=$(date +%Y-%m-%d-%H-%M-%S)
           DOCKERFILE="Dockerfile"
           ENVIRONMENT="production"
-          DESCRIPTION="ACM 24' Website"
+          DESCRIPTION="PFE 24' Website"
 
           docker build . \
             --file "$DOCKERFILE" \
@@ -47,7 +44,6 @@ jobs:
           IMAGE_NAME="mpstme-acm/acm-website-24"
           TAG="latest"
           CONTAINER_NAME="acm-web-container"
-          PORT="8080" # Using a free port from your system
 
           # Stop and remove any existing container with the same name
           if [ "$(docker ps -a | grep $CONTAINER_NAME)" ]; then
@@ -59,7 +55,7 @@ jobs:
           # Run the Docker container
           docker run -d \
             --name "$CONTAINER_NAME" \
-            -p "$PORT:3000" \ # Map port 8080 on host to port 3000 on container
+            -p 3005:3000 \
             "$IMAGE_NAME:$TAG"
 
-          echo "Docker container '$CONTAINER_NAME' is running from image '$IMAGE_NAME:$TAG' on port $PORT"
+          echo "Docker container '$CONTAINER_NAME' is running from image '$IMAGE_NAME:$TAG'"
