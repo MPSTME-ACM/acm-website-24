@@ -14,25 +14,13 @@ jobs:
       - name: Set up Node.js environment
         uses: actions/setup-node@v3
         with:
-          node-version: '18' # Use your preferred Node.js version
+          node-version: "18" # Use your preferred Node.js version
 
       - name: Install dependencies and build the project
-        env:
-          NEXT_PUBLIC_SANITY_PROJECT_ID: "atl90ed5"
-          NEXT_PUBLIC_NEWSLETTER_PROJECT_ID: "cql3n56o"
-          NEXT_PUBLIC_SANITY_DATASET: "production"
-        run: |
-          echo "NEXT_PUBLIC_SANITY_PROJECT_ID=$NEXT_PUBLIC_SANITY_PROJECT_ID"
-          echo "NEXT_PUBLIC_NEWSLETTER_PROJECT_ID=$NEXT_PUBLIC_NEWSLETTER_PROJECT_ID"
-          echo "NEXT_PUBLIC_SANITY_DATASET=$NEXT_PUBLIC_SANITY_DATASET"
-          npm ci
+        run: npm ci
           npm run build
 
       - name: Set up Docker build environment
-        env:
-          NEXT_PUBLIC_SANITY_PROJECT_ID: "atl90ed5"
-          NEXT_PUBLIC_NEWSLETTER_PROJECT_ID: "cql3n56o"
-          NEXT_PUBLIC_SANITY_DATASET: "production"
         run: |
           IMAGE_NAME="mpstme-acm/acm-website-24"
           DATE_TAG=$(date +%Y-%m-%d-%H-%M-%S)
@@ -72,9 +60,6 @@ jobs:
           docker run -d \
             --name "$CONTAINER_NAME" \
             -p "$PORT:3000" \ # Map port 8080 on host to port 3000 on container
-            -e NEXT_PUBLIC_SANITY_PROJECT_ID="$NEXT_PUBLIC_SANITY_PROJECT_ID" \
-            -e NEXT_PUBLIC_NEWSLETTER_PROJECT_ID="$NEXT_PUBLIC_NEWSLETTER_PROJECT_ID" \
-            -e NEXT_PUBLIC_SANITY_DATASET="$NEXT_PUBLIC_SANITY_DATASET" \
             "$IMAGE_NAME:$TAG"
 
           echo "Docker container '$CONTAINER_NAME' is running from image '$IMAGE_NAME:$TAG' on port $PORT"
