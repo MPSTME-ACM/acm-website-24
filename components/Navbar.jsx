@@ -52,7 +52,7 @@ export default function Navbar() {
           Events
         </Link>
         <Link
-          href={getSectionLink("team")}
+          href={'/team'}
           className="hidden md:block m-0 p-0 transition-all duration-200 cursor-pointer rounded-lg px-6 py-3 hover:bg-black/25"
         >
           Team
@@ -63,6 +63,12 @@ export default function Navbar() {
           className="hidden md:block m-0 p-0 transition-all duration-200 cursor-pointer rounded-lg px-6 py-3 hover:bg-black/25"
         >
           Newsletter
+        </Link>
+        <Link
+          href="/how"
+          className="hidden md:block m-0 p-0 transition-all duration-200 cursor-pointer rounded-lg px-6 py-3 hover:bg-black/25"
+        >
+          How
         </Link>
         {/* Mobile Sidebar Menu */}
         <Sheet>
@@ -112,6 +118,12 @@ export default function Navbar() {
                   className="m-0 p-0 transition-all duration-200 cursor-pointer rounded-lg px-3 py-2 underline hover:bg-black/25"
                 >
                   Newsletter
+                </Link>
+                <Link
+                  href="/how"
+                  className="m-0 p-0 transition-all duration-200 cursor-pointer rounded-lg px-3 py-2 underline hover:bg-black/25"
+                >
+                  How
                 </Link>
               </div>
             </div>
