@@ -1,8 +1,7 @@
-import { Bebas_Neue, Big_Shoulders_Display, JetBrains_Mono } from "next/font/google"
+import { Bebas_Neue, JetBrains_Mono } from "next/font/google"
 import Image from "next/image";
 
 const bn = Bebas_Neue({ subsets: ['latin'], weight: ['400']});
-const bsd = Big_Shoulders_Display({ subsets: ['latin'], weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']});
 const jbm = JetBrains_Mono({ subsets: ['latin'] });
 
 export default function Events () {

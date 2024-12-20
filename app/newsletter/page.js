@@ -1,5 +1,4 @@
 import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
 import { createClient } from "@sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 import Link from "next/link";
@@ -40,7 +39,6 @@ export default async function NewsletterPage() {
 
   return (
     <div className="flex flex-col items-center">
-      <Navbar />
       <div className="p-6 mt-24 pb-10 mb-10 border-b">
         <h1 className="text-3xl font-bold mb-6">Newsletters</h1>
         <div className="flex flex-col-reverse gap-6">

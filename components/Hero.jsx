@@ -2,6 +2,15 @@
 import Image from "next/image";
 import { useInView } from "motion/react";
 import { useRef } from "react";
+import {
+  Bebas_Neue,
+  JetBrains_Mono,
+  Big_Shoulders_Display,
+} from "next/font/google";
+
+const bn = Bebas_Neue({ subsets: ["latin"], weight: ["400"] });
+const jbm = JetBrains_Mono({ subsets: ["latin"] });
+
 export default function Hero() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -37,7 +46,7 @@ export default function Hero() {
         }}
       />
       <h1
-        className="text-center scroll-m-20 text-5xl md:text-7xl font-black tracking-tight lg:text-title px-4"
+        className={`text-center scroll-m-20 text-5xl md:text-7xl font-black tracking-tight lg:text-title px-4`}
         style={{
           opacity: isInView ? 1 : 0,
           transform: isInView ? "translateY(0)" : "translateY(50px)",
@@ -47,7 +56,7 @@ export default function Hero() {
         ACM MPSTME
       </h1>
       <h2
-        className="uppercase text-xs md:text-lg md:text-body-1 text-brand-surface2 tracking-wide text-center mb-6"
+        className="uppercase text-xs md:text-lg md:text-body-1 text-brand-surface2 tracking-widest md:tracking-[0.9em] text-center mb-6"
         style={{
           opacity: isInView ? 1 : 0,
           transform: isInView ? "translateY(0)" : "translateY(50px)",
