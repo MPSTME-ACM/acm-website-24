@@ -92,7 +92,7 @@ export default function Events () {
                 <div className={`absolute -top-[8rem] md:-top-[05%] text-8xl md:text-[10rem] md:scale-150`}>Events</div>
 								<div className="h-[40vh] md:h-[50vh]"></div>
 								<section ref={targetRef} className="relative flex items-center min-h-[300vh] md:min-h-[200vh] w-screen">
-									<div className={`${isInView ? 'opacity-100' : 'opacity-0'} transition-all duration-500 fixed top-[10%] md:top-1/4 md:px-16 scrollbar-hidden scale-90 md:scale-100 rounded-3xl snap-x snap-always snap-mandatory left-20 min-w-full max-w-2xl text-center`}>
+									<div className={`${isInView ? 'opacity-100' : 'opacity-0'} -z-20 transition-all duration-500 fixed top-[10%] md:top-1/4 md:px-16 scrollbar-hidden scale-90 md:scale-100 rounded-3xl snap-x snap-always snap-mandatory left-20 min-w-full max-w-2xl text-center`}>
 										<motion.div style={{ x }} className="scrollbar-hidden snap-x snap-always overflow-visible snap-mandatory min-w-[300vw] text-center flex gap-6 md:gap-3 items-center">
 												{events_list.map((item, index) => (
 														<Card key={index} item={item}/>
