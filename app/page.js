@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
 import Team from "@/components/Team";
+import CenteredOnView from "@/components/test";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
         <Events />
       </section>
       <Footer />
+      {/* <CenteredOnView/> */}
     </div>
   );
 }
