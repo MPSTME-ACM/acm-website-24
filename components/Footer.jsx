@@ -1,3 +1,7 @@
+"use client";
+import Link from "next/link"
+import { usePathname } from "next/navigation";
+
 const FlyWithACM = () => (    
     <svg className="size-56" viewBox="0 0 389 400" fill="none" xmlns="http://www.w3.org/2000/svg">
         {/* A */}<path d="M0.106812 294.801L27.1953 99.5688H84.7888L111.877 294.801H74.295L70.1463 254.046H41.8377L37.689 294.801H0.106812ZM45.2542 221.833H66.7298L62.3371 178.638L59.4086 131.782H52.5755L49.647 178.638L45.2542 221.833Z" fill="#0099FF"/>
@@ -15,6 +19,17 @@ const FlyWithACM = () => (
 )
 
 export default function Footer () {
+    const pathname = usePathname(); // Get the current path
+
+    const getSectionLink = (section) => {
+        if (pathname === "/") {
+        // If on the home page, return the anchor link directly
+        return `#${section}`;
+        }
+        // If on a different page, link to the home page with the anchor
+        return `/`;
+    };
+
     return (
         <div className="m-4 flex flex-col w-screen">
             <div className="flex flex-col-reverse gap-10 items-center md:items-start md:gap-0 md:flex-row justify-around px-20">
@@ -23,41 +38,43 @@ export default function Footer () {
                     <div className="flex flex-col gap-3">
                         <h1 className="p-0 m-0 uppercase font-semibold">Socials</h1>
                         <div className="flex flex-col gap-2 font-extralight text-xs">
-                            <div className="flex items-center">
-                                <svg className="fill-white size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <Link href={'https://www.instagram.com/acm_mpstme/'} target="_blank" className="flex fill-white hover:underline hover:text-sky-400 hover:font-bold transition-all duration-200 hover:fill-sky-400 items-center">
+                                <svg className="size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                     {/* <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--> */}
                                     <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
                                 </svg>
                                 <p>Instagram</p>
-                            </div>
-                            <div className="flex items-center">
-                                <svg className="fill-white size-[1rem] border border-white rounded-sm p-[0.1rem]" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                            </Link>
+                            <div className="flex fill-white hover:underline hover:text-sky-400 transition-all duration-200 hover:fill-sky-400 hover:font-bold items-center">
+                                <svg className="size-[1rem] border border-white rounded-sm p-[0.1rem]" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
                                     <path fill="currentColor" d="m13.736 5.853l4.005-4.117l2.325 2.38l-4.2 4.005h5.908v3.305h-5.937l4.229 4.108l-2.325 2.334l-5.74-5.769l-5.741 5.769l-2.325-2.325l4.229-4.108H2.226V8.121h5.909l-4.2-4.004l2.324-2.381l4.005 4.117V0h3.472zm-3.472 10.306h3.472V24h-3.472z" />
                                 </svg>
                                 <p>Linktree</p>
                             </div>
-                            <div className="flex items-center">
-                                <svg className="fill-white size-[1rem] border border-white rounded-sm p-[0.1rem]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <Link href={'https://www.linkedin.com/company/mpstmeacm/'} target="_blank" className="flex fill-white hover:underline hover:text-sky-400 hover:font-bold transition-all duration-200 hover:fill-sky-400 items-center">
+                                <svg className="size-[1rem] border border-white rounded-sm p-[0.1rem]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                     {/* <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--> */}
                                     <path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"/>
                                 </svg>
                                 <p>LinkedIn</p>
-                            </div>
+                            </Link>
                         </div>
                     </div>
                     <div className="flex flex-col gap-3">
                         <h1 className="p-0 m-0 uppercase font-semibold">Quick Links</h1>
                         <div className="flex flex-col gap-2 font-extralight text-xs">
-                            <p className="cursor-pointer underline">About Us</p>
-                            <p className="cursor-pointer underline">Projects</p>
-                            <p className="cursor-pointer underline">Events</p>
-                            <p className="cursor-pointer underline">Team</p>
+                            <Link href={getSectionLink("about")} className="cursor-pointer underline hover:text-sky-400 transition-all duration-200 hover:font-bold">About Us</Link>
+                            <Link href={getSectionLink("projects")} className="cursor-pointer underline hover:text-sky-400 transition-all duration-200 hover:font-bold">Projects</Link>
+                            <Link href={'/events'} className="cursor-pointer underline hover:text-sky-400 transition-all duration-200 hover:font-bold">Events</Link>
+                            <Link href={'/team'} className="cursor-pointer underline hover:text-sky-400 transition-all duration-200 hover:font-bold">Team</Link>
+                            <Link href={'/newsletter'} className="cursor-pointer underline hover:text-sky-400 transition-all duration-200 hover:font-bold">Newsletter</Link>
+                            <Link href={'/how'} className="cursor-pointer underline hover:text-sky-400 transition-all duration-200 hover:font-bold">How</Link>
                         </div>
                     </div>
                     <div className="flex flex-col gap-3">
                         <h1 className="p-0 m-0 uppercase font-semibold">Contact</h1>
                         <div className="flex flex-col gap-2 font-extralight text-xs">
-                            <div className="flex items-center">
+                            <div className="flex hover:underline hover:text-sky-400 transition-all duration-200 hover:font-bold items-center">
                                 <svg className="fill-white size-[1rem] border border-white rounded-sm p-[0.1rem]" width="134" height="100" viewBox="0 0 134 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g clipPath="url(#clip0_1:194)">
                                         <path d="M9.09091 100H30.303V48.4848L0 25.7576V90.9091C0 95.9394 4.07576 100 9.09091 100Z"/>
@@ -72,7 +89,7 @@ export default function Footer () {
                                         </clipPath>
                                     </defs>
                                 </svg>
-                                <p>acm.mpstme@gmail.com</p>
+                                <Link href={'mailto:acm.mpstme@gmail.com'} target="_blank">acm.mpstme@gmail.com</Link>
                             </div>
                         </div>
                     </div>

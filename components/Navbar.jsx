@@ -46,7 +46,7 @@ export default function Navbar() {
           Projects
         </Link>
         <Link
-          href={getSectionLink("events")}
+          href={"/events"}
           className="hidden md:block m-0 p-0 transition-all duration-200 cursor-pointer rounded-lg px-6 py-3 hover:bg-black/25"
         >
           Events

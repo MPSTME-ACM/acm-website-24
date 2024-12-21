@@ -20,9 +20,6 @@ export default function Home() {
       <section id="events">
         <Events />
       </section>
-      <section id="team">
-        <Team />
-      </section>
       <Footer />
     </div>
   );
