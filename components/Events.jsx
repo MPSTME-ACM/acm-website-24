@@ -9,15 +9,15 @@ const bn = Bebas_Neue({ subsets: ['latin'], weight: ['400']});
 const jbm = JetBrains_Mono({ subsets: ['latin'] });
 
 export default function Events () {
-		const targetRef = useRef(null);
+	const targetRef = useRef(null);
   	const { scrollYProgress } = useScroll({
     	target: targetRef,
   	});
 
-		const multiplier = (window.innerWidth < 768)? 3.62 : 1.5;
-		const divider = (window.innerWidth < 768)? 2.3 : (window.innerHeight * 2.3);
+		const multiplier = (typeof window !== 'undefined' && window.innerWidth < 768)? 3.62 : 1.5;
+		const divider = (typeof window !== 'undefined' && window.innerWidth < 768)? 2.3 : (typeof window !== 'undefined' ? window.innerHeight * 2.3 : 0);
 
-  	const x = useTransform(scrollYProgress, [0, 1], [-(window.innerHeight/divider), -(window.innerWidth * multiplier)]);
+	const x = useTransform(scrollYProgress, [0, 1], [-(typeof window !== 'undefined' ? window.innerHeight/divider : 0), -(typeof window !== 'undefined' ? window.innerWidth * multiplier : 0)]);
 
 		const [ isInView, setIsInView ] = useState(false);
 
@@ -95,7 +95,7 @@ export default function Events () {
 									<div className={`${isInView ? 'opacity-100' : 'opacity-0'} transition-all duration-500 fixed top-[10%] md:top-1/4 md:px-16 scrollbar-hidden scale-90 md:scale-100 rounded-3xl snap-x snap-always snap-mandatory left-20 min-w-full max-w-2xl text-center`}>
 										<motion.div style={{ x }} className="scrollbar-hidden snap-x snap-always overflow-visible snap-mandatory min-w-[300vw] text-center flex gap-6 md:gap-3 items-center">
 												{events_list.map((item, index) => (
-														<Card item={item} index={index}/>
+														<Card key={index} item={item}/>
 												))}
 										</motion.div>
 									</div>
@@ -106,8 +106,8 @@ export default function Events () {
     )
 }
 
-const Card = ({item, index}) => (
-	<div style={{ backgroundImage: "url('/noise.png')", backgroundSize: '40px'}} key={index} className={`bg-zinc-950/75 backdrop-blur-lg p-4 pt-8 rounded-xl snap-center md:snap-start md:flex-row flex-col gap-3 md:gap-0 items-center md:items-start border flex mt-5 ${item.last ? 'mr-60 md:mr-20' : ''} ${item.first ? 'ml-52 md:ml-4' : ''}`}>
+const Card = ({item}) => (
+	<div style={{ backgroundImage: "url('/noise.png')", backgroundSize: '40px'}} className={`bg-zinc-950/75 backdrop-blur-lg p-4 pt-8 rounded-xl snap-center md:snap-start md:flex-row flex-col gap-3 md:gap-0 items-center md:items-start border flex mt-5 ${item.last ? 'mr-60 md:mr-20' : ''} ${item.first ? 'ml-52 md:ml-4' : ''}`}>
 		<Image className="min-w-72 ml-3 md:ml-0 max-w-72" src={item.image} alt={item.name} height={1200} width={1200} />
 		<div className="flex flex-col gap-5 md:min-h-60 max-h-56 justify-between md:pr-10">
 				<div className="flex gap-2 text-center md:text-left items-center">
