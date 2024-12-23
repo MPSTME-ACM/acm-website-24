@@ -16,11 +16,11 @@ export default function Hero() {
   const isInView = useInView(ref, { once: true });
   return (
     <div
-      className="w-full relative flex flex-col items-center justify-center max-w-[90rem] h-screen max-h-[1080px] gap-5"
+      className="w-full relative flex flex-col items-center justify-center container h-[80vh] md:h-screen max-h-[1080px] gap-5"
       ref={ref}
     >
       <Image
-        className="absolute -top-16 -left-20 blur-xl hover:blur-none transition-all duration-300"
+        className="absolute -top-16 -left-20 brightness-50 md:brightness-100  md:blur-xl hover:blur-none transition-all duration-300"
         src={"/images/image1.png"}
         alt="ACM MPSTME Image"
         width={360}
@@ -33,7 +33,7 @@ export default function Hero() {
         }}
       />
       <Image
-        className="absolute -top-20 -right-20 blur-xl hover:blur-none transition-all duration-300"
+        className="absolute -top-20 -right-20 brightness-50 md:brightness-100  md:blur-xl hover:blur-none transition-all duration-300"
         src={"/images/image2.png"}
         alt="ACM MPSTME Image"
         width={360}
@@ -67,7 +67,7 @@ export default function Hero() {
         Association of Computing Machinery
       </h2>
       <Image
-        className="absolute -bottom-16 -left-20 blur-xl hover:blur-none transition-all duration-300"
+        className="absolute -bottom-16 -left-20 brightness-50 md:brightness-100  md:blur-xl hover:blur-none transition-all duration-300"
         src={"/images/image3.png"}
         alt="ACM MPSTME Image"
         width={360}
@@ -80,7 +80,7 @@ export default function Hero() {
         }}
       />
       <Image
-        className="absolute -bottom-20 -right-20 blur-xl hover:blur-none transition-all duration-300"
+        className="absolute -bottom-20 -right-20 brightness-50 md:brightness-100  md:blur-xl hover:blur-none transition-all duration-300"
         src={"/images/image4.png"}
         alt="ACM MPSTME Image"
         width={360}

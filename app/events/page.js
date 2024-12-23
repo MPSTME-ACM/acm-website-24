@@ -24,6 +24,62 @@ export default function Events() {
         >
           Our Events!
         </h1>
+        <div className=" flex flex-col lg:flex-row gap-16 justify-between items-center w-full">
+          <div className="flex flex-col justify-center items-start gap-10">
+            <div
+              className="scroll-m-20 text-5xl font-normal tracking-tight lg:text-7xl text-blue-400"
+              style={{
+                opacity: isInView ? 1 : 0,
+                transform: isInView ? "translateY(0)" : "translateY(10px)",
+                transition: "all 0.5s cubic-bezier(0.42, 0, 0.58, 1)",
+              }}
+            >
+              Semicolon!
+            </div>
+            <Image
+              src="/images/events/semi.png"
+              width={600}
+              height={600}
+              alt="Poster"
+              className="rounded-3xl  md:hidden"
+              style={{
+                opacity: isInView ? 1 : 0,
+                transform: isInView ? "translateY(0)" : "translateY(10px)",
+                transition: "all 0.5s cubic-bezier(0.42, 0, 0.58, 1)",
+                transitionDelay: "1.3s",
+              }}
+            ></Image>
+            <p
+              className=" m md:mr-5 text-brand-surface2 max-w-prose text-justify"
+              style={{
+                opacity: isInView ? 1 : 0,
+                transform: isInView ? "translateY(0)" : "translateY(10px)",
+                transition: "all 0.5s cubic-bezier(0.42, 0, 0.58, 1)",
+              }}
+            >
+              Semicolon is our event designed to showcase our
+              committee&apos;s vision and recruit passionate members for our
+              chapters. It highlights the collaboration and innovation of our
+              departments, offering a glimpse into their contributions and
+              opportunities. Through interactive activities and engaging
+              sessions, we aim to inspire, connect, and welcome new members to
+              join us in shaping a creative and impactful future.
+            </p>
+          </div>{" "}
+          <Image
+            src="/images/events/semi.png"
+            width={600}
+            height={600}
+            alt="Poster"
+            className="rounded-3xl hidden md:block"
+            style={{
+              opacity: isInView ? 1 : 0,
+              transform: isInView ? "translateY(0)" : "translateY(10px)",
+              transition: "all 0.5s cubic-bezier(0.42, 0, 0.58, 1)",
+              transitionDelay: "1.3s",
+            }}
+          ></Image>
+        </div>
         <div className=" w-full flex flex-col lg:flex-row gap-16 justify-between items-center">
           <Image
             src="/images/events/pfe-event.png"
@@ -211,7 +267,6 @@ export default function Events() {
           </div>
         </div>
       </section>
-      <div className="w-full border border-white/20 my-10" ></div>
       <Footer></Footer>
     </>
   );

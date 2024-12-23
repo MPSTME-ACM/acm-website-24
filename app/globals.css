@@ -4,7 +4,8 @@
 
 @font-face {
   font-family: "Switzer";
-  src: url("//cdn.fontshare.com/wf/HJHZ26OECMTXRH7JXPFC7EVIHDSLT2RA/LJRNLR7WCPF3PY3SZ7B2LHNUTQMFNCHL/4MCJYGQDIOOXHWSIIB2OYNDBEALJSOGN.woff2")
+  src:
+    url("//cdn.fontshare.com/wf/HJHZ26OECMTXRH7JXPFC7EVIHDSLT2RA/LJRNLR7WCPF3PY3SZ7B2LHNUTQMFNCHL/4MCJYGQDIOOXHWSIIB2OYNDBEALJSOGN.woff2")
       format("woff2"),
     url("//cdn.fontshare.com/wf/HJHZ26OECMTXRH7JXPFC7EVIHDSLT2RA/LJRNLR7WCPF3PY3SZ7B2LHNUTQMFNCHL/4MCJYGQDIOOXHWSIIB2OYNDBEALJSOGN.woff")
       format("woff"),
@@ -95,4 +96,18 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.accordion-content {
+  overflow: hidden;
+  will-change: height;
+  transition: height 0.3s ease;
+}
+
+.accordion-content[data-state="open"] {
+  height: var(--radix-accordion-content-height);
+}
+
+.accordion-content[data-state="closed"] {
+  height: 0;
 }

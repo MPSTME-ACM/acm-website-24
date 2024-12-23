@@ -31,7 +31,7 @@ export default function Footer () {
     };
 
     return (
-        <div className="m-4 flex flex-col w-screen">
+        <div className="m-4 flex flex-col w-screen border-t border-white/20 pt-6">
             <div className="flex flex-col-reverse gap-10 items-center md:items-start md:gap-0 md:flex-row justify-around px-20">
                 <FlyWithACM/>
                 <div className="flex gap-8 md:gap-16">

@@ -8,6 +8,8 @@ import {
 } from "@/components/ui/sheet";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { HamIcon } from "lucide-react";
+import { Menu } from "lucide-react";
 
 export default function Navbar() {
   const pathname = usePathname(); // Get the current path
@@ -52,7 +54,7 @@ export default function Navbar() {
           Events
         </Link>
         <Link
-          href={'/team'}
+          href={"/team"}
           className="hidden md:block m-0 p-0 transition-all duration-200 cursor-pointer rounded-lg px-6 py-3 hover:bg-black/25"
         >
           Team
@@ -73,7 +75,7 @@ export default function Navbar() {
         {/* Mobile Sidebar Menu */}
         <Sheet>
           <SheetTrigger className="md:hidden m-0 p-0 transition-all duration-200 cursor-pointer rounded-lg px-6 py-3 hover:bg-black/25">
-            Open
+            <Menu />
           </SheetTrigger>
           <SheetContent className="flex flex-col justify-between h-screen">
             <div>

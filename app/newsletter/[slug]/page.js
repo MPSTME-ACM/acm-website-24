@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
+import Slide from "@/components/Slide";
 
 const jbm = JetBrains_Mono({ subsets: ["latin"] });
 
@@ -116,6 +117,7 @@ export default async function PostPage({ params }) {
   return (
     <div className="flex flex-col items-center">
       <Navbar />
+      
       <div className="flex flex-row max-w-6xl mx-auto p-6 mt-28">
         {/* Main Content */}
         <div className="flex-1 pr-8">
