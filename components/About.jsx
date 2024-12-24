@@ -15,6 +15,13 @@ export default function About() {
     >
       <div className="flex flex-col md:flex-row justify-center items-center gap-10 px-8">
         <Image
+          src={"/opengraph-image.jpg"}
+          alt="OpenGrapgh Image"
+          height={1920}
+          width={1920}
+          className="hidden"
+        ></Image>
+        <Image
           className="md:w-1/2 h-full order-first md:order-last rounded-bl-3xl rounded-tr-3xl object-cover rounded-2xl"
           src={"/images/about.jpg"}
           alt="ACM MPSTME 2024 Team"

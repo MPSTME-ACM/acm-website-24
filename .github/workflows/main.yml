@@ -11,54 +11,51 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      # Use caching to speed up npm install
-      - uses: actions/cache@v3
-        with:
-          path: |
-            ~/.npm
-            node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      # Optimize dependency installation
-      - name: Install dependencies
-        run: npm ci --prefer-offline --no-audit
-
-      # Separate build and test steps
-      - name: Build Project
-        run: npm run build
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-
-      - name: Build and tag Docker image
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          load: true
-          tags: |
-            mpstme-acm/acm-website-24:${{ github.sha }}
-            mpstme-acm/acm-website-24:latest
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-          build-args: |
-            ENVIRONMENT=production
-          labels: |
-            maintainer=mpstme-acm
-            version=${{ github.sha }}
-            description=PFE 24' Website
-
-      - name: Deploy Container
+      - name: Testing If Build Is Successful
         run: |
+          # Install dependencies and build the project
+          npm ci
+          npm run build
+
+      - name: Set up build environment
+        run: |
+          IMAGE_NAME="mpstme-acm/acm-website-24"
+          DATE_TAG=$(date +%Y-%m-%d-%H-%M-%S)
+          DOCKERFILE="Dockerfile"
+          ENVIRONMENT="production"
+          DESCRIPTION="PFE 24' Website"
+
+          docker build . \
+            --file "$DOCKERFILE" \
+            --tag "$IMAGE_NAME:$DATE_TAG" \
+            --tag "$IMAGE_NAME:latest" \
+            --build-arg ENVIRONMENT="$ENVIRONMENT" \
+            --label "maintainer=mpstme-acm" \
+            --label "version=$DATE_TAG" \
+            --label "description=$DESCRIPTION" \
+            --pull \
+            --no-cache
+
+          echo "Docker image built and tagged as $IMAGE_NAME:$DATE_TAG and $IMAGE_NAME:latest"
+
+      - name: Run the Docker container
+        run: |
+          # Variables
+          IMAGE_NAME="mpstme-acm/acm-website-24"
+          TAG="latest"
           CONTAINER_NAME="acm-web-container"
-          
-          # Graceful container management
-          docker stop "$CONTAINER_NAME" || true
-          docker rm "$CONTAINER_NAME" || true
-          
+
+          # Stop and remove any existing container with the same name
+          if [ "$(docker ps -a | grep $CONTAINER_NAME)" ]; then
+            echo "Container with the name '$CONTAINER_NAME' already exists. Stopping and removing it."
+            docker stop "$CONTAINER_NAME"
+            docker rm "$CONTAINER_NAME"
+          fi
+
+          # Run the Docker container
           docker run -d \
             --name "$CONTAINER_NAME" \
             -p 3005:3000 \
-            --restart unless-stopped \
-            mpstme-acm/acm-website-24:latest
+            "$IMAGE_NAME:$TAG"
+
+          echo "Docker container '$CONTAINER_NAME' is running from image '$IMAGE_NAME:$TAG'"

@@ -1,9 +1,28 @@
 import { Nabla } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-export const metadata = {
+const options = {
   title: "ACM MPSTME",
   description: "Welcome to ACM MPSTME!",
+  url: "https://mpstmeacm.com",
+  ogImage: "https://mpstmeacm.com/opengraph-image.jpg",
+};
+export const metadata = {
+  title: options.title,
+  metadataBase: new URL(options.url),
+  description: options.description,
+  openGraph: {
+    title: options.title,
+    url: options.url,
+    siteName: "ACM MPSTME", 
+    locale: "en-US",
+    type: "website",
+    description: options.description,
+    images: options.ogImage,
+  },
+  alternates: {
+    canonical: options.url,
+  },
 };
 
 export default function RootLayout({ children }) {
