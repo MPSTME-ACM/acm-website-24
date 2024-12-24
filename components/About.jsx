@@ -13,7 +13,7 @@ export default function About() {
       className="relative flex flex-col items-start justify-center w-full container"
       ref={ref}
     >
-      <div className="flex flex-col md:flex-row justify-center items-center gap-10 my-5 px-8">
+      <div className="flex flex-col md:flex-row justify-center items-center gap-10 px-8">
         <Image
           className="md:w-1/2 h-full order-first md:order-last rounded-bl-3xl rounded-tr-3xl object-cover rounded-2xl"
           src={"/images/about.jpg"}

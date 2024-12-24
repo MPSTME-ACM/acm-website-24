@@ -11,10 +11,10 @@ export default function Podcast() {
   const isInView = useInView(ref, { once: true });
   return (
     <div
-      className="relative flex flex-col items-start justify-center w-screen container mt-32 mx-auto"
+      className="relative flex flex-col items-start justify-center w-screen container mx-auto"
       ref={ref}
     >
-      <div className="flex flex-col md:flex-row justify-between items-center gap-10 my-5 px-8 md:px-0 w-full">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-10 px-8 md:px-0 w-full">
         {" "}
         <Image
           src="/images/podcast.png"

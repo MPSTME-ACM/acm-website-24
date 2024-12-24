@@ -60,7 +60,7 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="relative flex flex-col md:flex-row items-center justify-between w-screen max-w-[90rem] mt-32 mx-auto bg-neutral-900 p-10 rounded-2xl">
+    <div className="relative flex flex-col md:flex-row items-center justify-between w-screen max-w-[90rem] mx-auto bg-neutral-900 p-10 rounded-2xl">
       <h1
         className={`${bn.className} text-8xl md:text-[11rem] tracking-tight font-semibold uppercase `}
       >

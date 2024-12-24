@@ -11,7 +11,7 @@ import Faq from "@/components/Faq";
 
 export default function Home() {
   return (
-    <div className="flex flex-col w-screen items-center justify-between gap-10 md:gap-28 overflow-x-hidden text-brand-surface">
+    <div className="flex flex-col w-screen items-center justify-between gap-20 md:gap-28 overflow-x-hidden text-brand-surface">
       <Hero />
       <section id="about">
         <About />

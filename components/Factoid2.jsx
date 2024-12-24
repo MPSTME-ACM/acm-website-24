@@ -72,7 +72,7 @@ export default function Factoid2() {
   return (
     <section className="container mx-auto px-8 md:py-8">
       <h1
-        className={` ${bn.className} scroll-m-20 text-7xl font-normal  lg:text-9xl py-10`}
+        className={` ${bn.className} scroll-m-20 text-7xl font-normal  lg:text-9xl pb-10`}
       >
         What We Do!
       </h1>

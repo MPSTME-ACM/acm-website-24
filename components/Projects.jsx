@@ -4,110 +4,79 @@ const bn = Bebas_Neue({ subsets: ["latin"], weight: ["400"] });
 import Slide from "./Slide";
 
 function Desktop() {
+  const projects = [
+    {
+      id: 1,
+      title: "DVWA",
+      image: "/images/projects/project1.avif",
+      description:
+        "Exploring PHP/MySQL vulnerabilities highlights crucial security flaws, stressing robust web development practices.",
+      className: "col-span-2 row-span-2",
+    },
+    {
+      id: 2,
+      title: "Valor Arena",
+      image: "/images/projects/project2.png",
+      description:
+        "3D wave survival game with card buffs, dynamic bosses, skill customization, and immersive sound.",
+      className: "col-span-2",
+    },
+    {
+      id: 3,
+      title: "Quizzo",
+      image: "/images/projects/project3.png",
+      description:
+        "Create, play, compete with live feedback, secure logins, and leaderboards.",
+      className: "col-span-2",
+    },
+    {
+      id: 4,
+      title: "MediQuery",
+      image: "/images/projects/project4.png",
+      description:
+        "Medical chatbot uses Pinecone vector storage and Qwen - 21.5 API for efficient, informed responses.",
+      className: "col-span-2",
+    },
+    {
+      id: 5,
+      title: "Automation for ACM",
+      image: "/images/projects/project5.png",
+      description:
+        "One-click website hosting automates deployment, Docker containers, and EC2 instance management for ACM MPSTME.",
+      className: "col-span-2",
+    },
+  ];
+
   return (
-    <div className="hidden md:flex scale-125 gap-4">
-      <Slide delay={0.2}>
-        <div className="relative">
-          <Image
-            alt="DVWA"
-            src={"/images/projects/project1.avif"}
-            height={220}
-            width={220}
-          />
-          <div className="opacity-0 transition-all duration-300 absolute bg-black/70 min-h-full bottom-0 text-[0.60rem] text-left p-4 text-pretty gap-1 hover:opacity-100 flex flex-col justify-end">
-            <div className={`text-5xl tracking-tight font-bold`}>DVWA</div>
-            <p className="text-zinc-400">
-              Exploring PHP/MySQL vulnerabilities highlights crucial security
-              flaws, stressing robust web development practices.
-            </p>
+    <div className="container text-center flex flex-col items-center justify-center h-screen w-screen">
+      <div className="grid grid-cols-4 gap-4 max-w-[920px] mx-auto h-full w-screen">
+        {projects.map((project) => (
+          <div
+            key={project.id}
+            className={`relative group ${project.className} bg-gray-800 rounded-lg overflow-hidden`}
+          >
+            <img
+              alt={project.title}
+              src={project.image}
+              className="absolute inset-0 w-full h-full object-cover peer"
+            />
+            <div className="absolute inset-0 bg-black/70 text-sm text-left p-4 flex flex-col justify-end gap-5">
+              <p className="text-gray-300 opacity-0 transition-all duration-300 group-hover:opacity-100 ">
+                {project.description}
+              </p>
+              <div
+                className={`text-${project.className.includes("col-span-2") ? "5xl" : "2xl"} font-bold text-white/80`}
+              >
+                {project.title}
+              </div>
+            </div>
           </div>
-        </div>
-      </Slide>
-      <div className="flex flex-col gap-2 justify-between items-center">
-        <div className="flex gap-6 justify-between items-center">
-          <Slide delay={0.4}>
-            <div className="relative">
-              <Image
-                alt="Valor Arena"
-                src={"/images/projects/project2.png"}
-                height={420}
-                width={360}
-              />
-              <div className="opacity-0 transition-all duration-300 absolute bg-black/70 min-h-full bottom-0 text-[0.60rem] text-left p-4 text-pretty gap-1 hover:opacity-100 flex flex-col justify-end">
-                <div className={` text-5xl tracking-tight font-bold`}>
-                  Valor Arena
-                </div>
-                <p className="text-zinc-400">
-                  3D wave survival game with card buffs, dynamic bosses, skill
-                  customization, and immersive sound.
-                </p>
-              </div>
-            </div>
-          </Slide>
-          <Slide delay={0.6}>
-            <div className="relative">
-              <Image
-                alt="Quizzo"
-                src={"/images/projects/project3.png"}
-                height={220}
-                width={220}
-              />
-              <div className="opacity-0 transition-all duration-300 absolute bg-black/70 min-h-full bottom-0 text-[0.60rem] text-left p-4 text-pretty gap-1 hover:opacity-100 flex flex-col justify-end">
-                <div className={`text-5xl tracking-tight font-bold`}>
-                  Quizzo
-                </div>
-                <p className="text-zinc-400">
-                  Quizzo: Create, play, compete with live feedback, secure
-                  logins, and leaderboards.
-                </p>
-              </div>
-            </div>
-          </Slide>
-        </div>
-        <div className="flex gap-4 justify-between items-center">
-          <Slide delay={0.8}>
-            <div className="relative">
-              <Image
-                alt="MediQuery"
-                src={"/images/projects/project4.png"}
-                height={210}
-                width={210}
-              />
-              <div className="opacity-0 transition-all duration-300 absolute bg-black/70 min-h-full bottom-0 text-[0.50rem] text-left p-4 text-pretty gap-0 hover:opacity-100 flex flex-col justify-end">
-                <div className={` text-2xl font-bold tracking-tighter `}>
-                  MediQuery
-                </div>
-                <p className="text-zinc-400">
-                  Medical chatbot uses Pinecone vector storage and Qwen - 21.5
-                  API for efficient, informed responses
-                </p>
-              </div>
-            </div>
-          </Slide>
-          <Slide delay={1}>
-            <div className="relative">
-              <Image
-                alt="Automation for ACM"
-                src={"/images/projects/project5.png"}
-                height={210}
-                width={350}
-              />
-              <div className="opacity-0 transition-all duration-300 absolute bg-black/70 min-h-full bottom-0 text-[0.50rem] text-left p-4 text-pretty gap-0 hover:opacity-100 flex flex-col justify-end">
-                <div className={`text-2xl font-bold tracking-tighter `}>
-                  Automation for ACM
-                </div>
-                <p className="text-zinc-400">
-                  One-click website hosting automates deployment, Docker
-                  containers, and EC2 instance management for ACM MPSTME.
-                </p>
-              </div>
-            </div>
-          </Slide>
-        </div>
+        ))}
       </div>
     </div>
   );
 }
+
 function Mobile() {
   const projects = [
     {
@@ -148,7 +117,7 @@ function Mobile() {
         {projects.map((project) => (
           <div
             key={project.title}
-            className="w-full max-w-[300px] mx-auto rounded-2xl overflow-hidden"
+            className="w-full  rounded-2xl overflow-hidden py-3"
           >
             <div className="w-full h-[200px] relative">
               <Image
@@ -158,7 +127,7 @@ function Mobile() {
                 fill
               />
             </div>
-            <div className="bg-black/70 p-4 rounded-b-2xl">
+            <div className="bg-neutral-900 p-4 rounded-b-2xl">
               <h2 className="text-xl font-bold">{project.title}</h2>
               <p className="text-sm text-zinc-400">{project.description}</p>
             </div>
@@ -171,8 +140,8 @@ function Mobile() {
 
 export default function Projects() {
   return (
-    <div className="w-screen">
-      <div className="relative flex flex-col items-center justify-center">
+    <div className="w-screen h-full">
+      <div className="relative flex flex-col items-center md:items-center justify-center">
         <Slide>
           <div
             className={`${bn.className} md:p-10 text-8xl md:text-[11rem] tracking-tight font-semibold uppercase px-8 `}
@@ -180,7 +149,7 @@ export default function Projects() {
             Our Projects!
           </div>
         </Slide>
-        <div className=" container text-center flex flex-col items-center justify-center">
+        <div className=" container text-center flex flex-col items-center justify-center h-full">
           <Desktop />
           <Mobile />
         </div>
