@@ -104,13 +104,13 @@ export default function Navbar() {
                   Projects
                 </Link>
                 <Link
-                  href={getSectionLink("events")}
+                  href={"/events"}
                   className="m-0 p-0 transition-all duration-200 cursor-pointer rounded-lg px-3 py-2 underline hover:bg-black/25"
                 >
                   Events
                 </Link>
                 <Link
-                  href={getSectionLink("team")}
+                  href={"/team"}
                   className="m-0 p-0 transition-all duration-200 cursor-pointer rounded-lg px-3 py-2 underline hover:bg-black/25"
                 >
                   Team
