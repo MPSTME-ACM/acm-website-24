@@ -20,6 +20,7 @@ export default function Faq() {
       answer:
         "Yes of course. We will help you in your learning journey, you just need to take the first step by joining our committee!",
     },
+    
     {
       question: "What all departments are there?",
       answer:
