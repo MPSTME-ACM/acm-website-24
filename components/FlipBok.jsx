@@ -45,7 +45,7 @@ const PDFFlipbook = ({ pdfUrl }) => {
   return (
     <div className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-10">
       <div className="w-full max-w-7xl">
-        <div className="flex flex-col justify-around gap-4 items-start mb-4">
+        <div className="flex flex-col justify-around gap-4 items-start mb-4 px-10">
           <h1 className="text-3xl md:text-5xl font-black mb-6">
             ACM Chronicles
           </h1>
@@ -53,18 +53,18 @@ const PDFFlipbook = ({ pdfUrl }) => {
             The official newsletter of ACM MPSTME! This is a flip-book or you
             can download the pdf file!
           </p>
+          <button
+            onClick={handleDownload}
+            className="flex items-center hover:text-blue-500 hover:underline group"
+          >
+            <Download className="w-4 h-4 mr-2 group-hover:text-blue-500" />
+            Download PDF
+          </button>
           {!isLoading && (
             <>
               <p className="page-info block">
                 Page {pageNumber} of {numPages}
               </p>
-              <button
-                onClick={handleDownload}
-                className="flex items-center hover:text-blue-500 hover:underline group"
-              >
-                <Download className="w-4 h-4 mr-2 group-hover:text-blue-500" />
-                Download PDF
-              </button>
             </>
           )}
         </div>
@@ -88,8 +88,8 @@ const PDFFlipbook = ({ pdfUrl }) => {
         >
           {!isLoading && width > 1 && typeof window !== "undefined" ? (
             <HTMLFlipBook
-              width={pageWidth}
-              height={pageHeight}
+              width={pageWidth - 20}
+              height={pageHeight - 20}
               size="stretch"
               minWidth={400}
               maxWidth={1000}
