@@ -1,3 +1,4 @@
+"use client";
 import PDFFlipbook from "@/components/FlipBok";
 
 export default function ChroniclesPage() {
