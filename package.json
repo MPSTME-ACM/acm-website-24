@@ -23,10 +23,13 @@
     "react": "^18",
     "react-dom": "^18",
     "react-icon-cloud": "^4.1.4",
+    "react-pageflip": "^2.0.3",
+    "react-pdf": "^9.2.1",
     "resend": "^4.0.1",
     "sharp": "^0.33.5",
     "tailwind-merge": "^2.5.5",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "use-resize-observer": "^9.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",
