@@ -14,7 +14,7 @@ jobs:
       - name: Testing If Build Is Successful
         run: |
           # Install dependencies and build the project
-          npm i
+          npm ci
           npm run build
 
       - name: Set up build environment
