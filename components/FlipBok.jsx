@@ -1,11 +1,14 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import HTMLFlipBook from "react-pageflip";
+import React, { useState } from "react";
+import dynamic from "next/dynamic";
 import { Document, Page, pdfjs } from "react-pdf";
 import useResizeObserver from "use-resize-observer";
 import { Download } from "lucide-react";
 import Image from "next/image";
+
+// Dynamically import HTMLFlipBook to avoid SSR issues
+const HTMLFlipBook = dynamic(() => import("react-pageflip"), { ssr: false });
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/4.8.69/pdf.worker.min.mjs`;
 
@@ -47,14 +50,18 @@ const PDFFlipbook = ({ pdfUrl }) => {
             ACM Chronicles
           </h1>
           <p className="text-brand-surface2 text-justify md:text-lg max-w-sm ">
-            The official newsletter of ACM MPSTME! This is a flip-book or you can download the pdf file!
+            The official newsletter of ACM MPSTME! This is a flip-book or you
+            can download the pdf file!
           </p>
           {!isLoading && (
             <>
               <p className="page-info block">
                 Page {pageNumber} of {numPages}
               </p>
-              <button onClick={handleDownload} className="flex items-center hover:text-blue-500 hover:underline group">
+              <button
+                onClick={handleDownload}
+                className="flex items-center hover:text-blue-500 hover:underline group"
+              >
                 <Download className="w-4 h-4 mr-2 group-hover:text-blue-500" />
                 Download PDF
               </button>
@@ -79,7 +86,7 @@ const PDFFlipbook = ({ pdfUrl }) => {
             </div>
           }
         >
-          {!isLoading && width > 1 ? (
+          {!isLoading && width > 1 && typeof window !== "undefined" ? (
             <HTMLFlipBook
               width={pageWidth}
               height={pageHeight}
