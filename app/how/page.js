@@ -34,7 +34,7 @@ export default function How() {
 
   return (
     <>
-      <section className="flex flex-col w-screen items-start  justify-between  overflow-x-hidden text-brand-surface py-20 md:pt-40 max-w-[90rem] mx-auto px-8 lg:px-0 gap-10 ">
+      <section className="flex flex-col w-screen items-start  justify-between  overflow-x-hidden text-brand-surface py-20 md:pt-40 max-w-[90rem] mx-auto p-0 md:p-20 gap-10 ">
         <Slide>
           <h1 className="text-8xl font-normal tracking-tight lg:text-9xl mb-8">
             How did we build this site?
@@ -56,7 +56,7 @@ export default function How() {
               <h2 className="text-2xl font-semibold mt-6 text-blue-400">
                 Frontend
               </h2>
-              <ul className="list-disc list-inside space-y-2">
+              <ul className="list-disc list-outside ml-5 space-y-2">
                 <li className=" font-light">
                   <span className="font-semibold">Next.js:</span> We went with
                   Next.js because it gives us the power of Server-Side Rendering
@@ -87,7 +87,7 @@ export default function How() {
               <h2 className="text-2xl font-semibold mt-6 text-green-400">
                 Deployment
               </h2>
-              <ul className="list-disc list-inside space-y-2">
+              <ul className="list-disc list-outside ml-5 space-y-2">
                 <li className=" font-light">
                   <span className="font-semibold">GitHub Actions:</span>{" "}
                   We&apos;ve automated our deployment process with GitHub
@@ -105,7 +105,7 @@ export default function How() {
               <h2 className="text-2xl font-semibold mt-6 text-pink-400">
                 Networking & Security
               </h2>
-              <ul className="list-disc list-inside space-y-2">
+              <ul className="list-disc list-outside ml-5 space-y-2">
                 <li className=" font-light">
                   <span className="font-semibold">Cloudflare DNS:</span> We
                   route all our traffic through Cloudflare&apos;s DNS. They

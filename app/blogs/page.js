@@ -18,15 +18,16 @@ function urlFor(source) {
 
 async function fetchPosts() {
   return await client.fetch(`
-    *[_type == "post" && !archived && defined(mainImage)] | order(publishedAt desc) {
-      _id,
+    *[_type == "post"] | order(publishedAt desc) {
       title,
+      slug,
+      mainImage,
       description,
-      "slug": slug.current,
-      "imageUrl": mainImage.asset->url,
+      body,
       publishedAt,
       author->{
-        name
+        name,
+        image
       },
       categories[]->{
         title
@@ -48,9 +49,9 @@ export default async function BlogPage() {
           {posts.map((post, index) => (
             <Slide delay={index * 0.1} key={post._id}>
               <div className="flex gap-4 flex-col justify-between md:flex-row-reverse border rounded-lg p-4 shadow hover:shadow-md transition">
-                {post.imageUrl ? (
+                {post.mainImage ? (
                   <Image
-                    src={urlFor(post.imageUrl)}
+                    src={urlFor(post.mainImage)}
                     alt={post.title}
                     width={800}
                     height={600}
@@ -78,7 +79,7 @@ export default async function BlogPage() {
                   </div>
                   <div className="flex flex-col items-stretch md:items-start">
                     <Link
-                      href={`/blog/${post.slug}`}
+                      href={`/blogs/${post.slug?.current || '/unknown'}`}
                       className={`${jbm.className} text-xs uppercase border text-center py-2 px-8 rounded-sm bg-zinc-800/25 hover:bg-zinc-800/40 transition-all duration-300 text-blue-500 hover:border-blue-900/50 mt-2 inline-block`}
                     >
                       Read More
