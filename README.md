@@ -11,13 +11,21 @@
 ## Installation
 
 1. Clone the repository
+
+```bash
+git clone https://github.com/MPSTME-ACM/acm-website-24.git
+cd acm-website-24
+```
+
 2. Install dependencies
+
+```bash
+npm install
+```
+
 3. Run the development server
 
 ```bash
-git clone https://github.com/acm-mpstme/acm-website-24.git
-cd acm-website-24
-npm install
 npm run dev
 ```
 
