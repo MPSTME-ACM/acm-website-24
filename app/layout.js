@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
         data-website-id="74a15570-f8ac-42fc-b3aa-4ac036cb036d"
       ></Script>
       <link rel="icon" href="/acm.png" sizes="any" />
-      <body className="dark overflow-x-hidden">
+      <body className="dark overflow-y-scroll overflow-x-clip">
         <Navbar />
         {children}
       </body>

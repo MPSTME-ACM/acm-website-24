@@ -7,7 +7,7 @@ import Slide from "./Slide";
 const bn = Bebas_Neue({ subsets: ["latin"], weight: ["400"] });
 
 export default async function Team() {
-  const teamMembers = await client.fetch(`
+  let teamMembers = await client.fetch(`
         *[_type == "teamMember" && "SC" in position]{
           _id,
           name,
@@ -16,6 +16,35 @@ export default async function Team() {
           portfolioUrl
         }
       `);
+  function sortTeamMembers(teamMembers) {
+    return teamMembers.sort((a, b) => {
+      // 1. Prioritize "SC" department
+      if (
+        (a.position[0] === "SC" || a.position[0] === "") &&
+        (b.position[0] !== "SC" || b.position[0] !== "")
+      )
+        return -1;
+      if (
+        (b.position[0] === "SC" || b.position[0] === "") &&
+        (a.position[0] !== "SC" || a.position[0] !== "")
+      )
+        return 1;
+
+      // 2. Sort departments alphabetically
+      if (a.position[0] !== b.position[0]) {
+        return a.position[0].localeCompare(b.position[0]);
+      }
+
+      // 3. Within departments, "Head" comes before "Sub Head"
+      if (a.position[1] === "Head" && b.position[1] !== "Head") return -1;
+      if (b.position[1] === "Head" && a.position[1] !== "Head") return 1;
+
+      // 4. Alphabetical order by name if roles are the same
+      return a.name.localeCompare(b.name);
+    });
+  }
+  const sortedTeamMembers = sortTeamMembers(teamMembers);
+
   const builder = imageUrlBuilder(client);
 
   function urlFor(source) {
@@ -42,7 +71,7 @@ export default async function Team() {
         </Link>
       </Slide>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10 px-10">
-        {teamMembers.map((member, index) => (
+        {sortedTeamMembers.map((member, index) => (
           <Slide delay={index * 0.1} key={member._id}>
             <div
               className={`${member.position[1] === "Sub Head" ? "hidden md:flex" : "flex"} relative bg-zinc-800/25 border px-5 rounded-lg shadow-lg flex-col items-center justify-between text-center`}

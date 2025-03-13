@@ -48,7 +48,7 @@ function Desktop() {
   ];
 
   return (
-    <div className="container text-center flex flex-col items-center justify-center h-screen w-screen">
+    <div className="container text-center hidden md:flex flex-col items-center justify-center h-screen w-screen">
       <div className="grid grid-cols-4 gap-4 max-w-[920px] mx-auto h-full w-screen">
         {projects.map((project) => (
           <div
